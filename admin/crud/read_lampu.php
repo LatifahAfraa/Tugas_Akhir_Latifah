@@ -49,7 +49,7 @@
                                             <td><?php echo $no = $no + 1; ?></td>
                                             <td><?php echo $row['nama_lampu']; ?></td>
                                             <td><?php echo $row['lokasi_lampu']; ?></td>
-                                            <td><?php echo $row['waktu_mulai']; ?> - <?php echo $row['waktu_selesai']; ?></td>
+                                            <td><?php echo $row['waktu_mulai']; ?> - <?php echo $row['waktu_selesai']; ?> WIB</td>
                                             <td><?php echo $row['tambahan_waktu']; ?> <?php if($row['tambahan_waktu'] == 60) {
                                                 echo " Detik";
                                                 } else {
