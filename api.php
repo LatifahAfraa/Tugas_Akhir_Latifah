@@ -2,6 +2,19 @@
 require ("koneksi/koneksi.php");
 
 if(isset($_GET['update'])){
+    $id_lampu_update = $_GET['update'];
+    $waktu_terakhir_scan = date("Y-m-d H:i:s");
+    mysqli_query($konek, "UPDATE lampu SET status_lampu='merah', waktu_terakhir_scan='$waktu_terakhir_scan' WHERE id_lampu='$id_lampu_update'");
+    mysqli_query($konek, "UPDATE lampu SET status_lampu='hijau' WHERE id_lampu <> '$id_lampu_update'");
+
+    
+    $hasil = [
+        "data_lampu_1" => ($id_lampu_update == 1)? true : false, 
+        "data_lampu_2" => ($id_lampu_update == 2)? true : false, 
+        "data_lampu_3" => ($id_lampu_update == 3)? true : false,
+    ];
+
+    /*
     $table_lampu= mysqli_query($konek, "SELECT * FROM  lampu where status_lampu = 'merah' ORDER BY id_lampu ASC LIMIT 1");
     $data_lampu = mysqli_fetch_assoc($table_lampu);
 
@@ -27,6 +40,7 @@ if(isset($_GET['update'])){
             "data_lampu_3" => ($data_lampu['id_lampu'] == 3)? true : false,
         ];
     }
+    */
 
     echo json_encode($hasil);
     die();
