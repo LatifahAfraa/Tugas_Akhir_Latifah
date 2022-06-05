@@ -59,7 +59,7 @@
                                                     <td>
                                                         <a href="index.php?page=update_lampu&id_lampu=<?php echo $row['id_lampu'] ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
 
-                                                        <a href="index.php?page=hapus_lampu&id_lampu=<?php echo $row['id_lampu'] ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                        <!-- <a href="index.php?page=hapus_lampu&id_lampu=<?php echo $row['id_lampu'] ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a> -->
                                                     </td>
                                         </tr>
                                     <?php } ?>
