@@ -42,7 +42,7 @@
                   <tbody>
                     <?php
                 $no=0;
-                $query=mysqli_query($konek, "SELECT * FROM user ORDER BY id_user ASC");
+                $query=mysqli_query($konek, "SELECT * FROM user WHERE verifikasi=0 ORDER BY id_user ASC");
                 while ($row=mysqli_fetch_array($query))
                 {
                 ?>

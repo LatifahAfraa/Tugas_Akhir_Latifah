@@ -40,14 +40,14 @@
                                       <?php
                                         $no = 0;
                                         // SELECT *from LEFT JOIN FROM user ON kartu.user=id_kartu.id_kartu
-                                        $query = mysqli_query($konek, "SELECT *from kartu ORDER BY id_kartu ASC");
+                                        $query = mysqli_query($konek, "SELECT *, (SELECT COUNT(*) FROM penggunaan WHERE penggunaan.id_user=user.id_user) as total from user ORDER BY id_user ASC");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
                                           <tr>
                                               <td><?php echo $no = $no + 1; ?></td>
                                               <td><?php echo $row['nik']; ?></td>
                                               <td><?php echo $row['nama']; ?></td>
-                                              <td><?php echo $row['penggunaan']; ?> x</td>
+                                              <td><?php echo $row['total']; ?> x</td>
 
                                           </tr>
                                       <?php } ?>
