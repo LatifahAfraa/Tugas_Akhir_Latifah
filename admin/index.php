@@ -13,6 +13,7 @@ include "../koneksi/koneksi.php";
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LAMPU LALU LINTAS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../lam.png" />
 
   <!-- ckeditor -->
   <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
