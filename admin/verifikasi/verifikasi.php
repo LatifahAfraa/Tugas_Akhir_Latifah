@@ -41,6 +41,14 @@ $user = mysqli_fetch_assoc($data);
                                     </div>
                                 </div>
 
+                                
+                                <div class="form-group row">
+                                    <label for="id_rfid" class="col-sm-2 col-form-label">ID RFID</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="id_rfid" value="<?php echo $user['id_rfid'] ?>" class="form-control" id="nama">
+                                    </div>
+                                </div>
+
                                 <div class="form-group row">
                                     <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                     <div class="col-sm-10">
@@ -90,6 +98,7 @@ $user = mysqli_fetch_assoc($data);
     if (isset($_POST['simpan'])) {
         # code...
         $nik = $_POST['nik'];
+        $id_rfid = $_POST['id_rfid'];
         $nama = $_POST['nama'];
         $alamat = $_POST['alamat'];
         $tanggal_lahir=$_POST['tanggal_lahir'];
@@ -97,7 +106,7 @@ $user = mysqli_fetch_assoc($data);
         $verifikasi = $_POST['verifikasi'];
         // $password= password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-        $simpan = mysqli_query($konek, "UPDATE user SET nik='$nik', nama='$nama', alamat='$alamat', tanggal_lahir='$tanggal_lahir', no_hp='$no_hp', verifikasi='$verifikasi' WHERE id_user= '$_GET[id_user]'");
+        $simpan = mysqli_query($konek, "UPDATE user SET nik='$nik',id_rfid='$id_rfid', nama='$nama', alamat='$alamat', tanggal_lahir='$tanggal_lahir', no_hp='$no_hp', verifikasi='$verifikasi' WHERE id_user= '$_GET[id_user]'");
         if ($simpan) {
             # code...
             echo "<script>alert('Pendaftaran Telah Divalidasi Admin '); window.location.href='index.php?page=verifikasi'</script>";

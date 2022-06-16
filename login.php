@@ -170,7 +170,7 @@ include "koneksi/koneksi.php";
 							} else {
 								$_SESSION['nama'] = $nama;
 								$_SESSION['status'] = "login";
-								echo "<script>window.location='admin/index.php'</script>";
+								echo "<script>window.location='index.php'</script>";
 							}
 						} else {
 							echo "<script>alert('Nama Tidak Ditemukan');</script>";

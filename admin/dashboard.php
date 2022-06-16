@@ -40,7 +40,7 @@ $jumlah_user = mysqli_num_rows($user);
           <div class="icon">
             <i class="fas fa-users-cog"></i>
           </div>
-          <a href="index.php?page=user" class="small-box-footer">
+          <a href="index.php?page=aktif_nonaktif" class="small-box-footer">
             More info <i class="fas fa-arrow-circle-right"></i>
           </a>
         </div>

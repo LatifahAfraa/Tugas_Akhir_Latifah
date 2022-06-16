@@ -42,6 +42,37 @@
                             <?php
                             }
                             ?>
+                            <br><center><label>List Penambahan Waktu Pada Setiap Traffic Light</label></center>
+                              <table id="admin" class="table table-bordered table-striped">
+                                  <thead>
+                                      <tr>
+                                          <th>No</th>
+                                          <th>Nama Lampu Lalu Lintas</th>
+                                          <th>Lokasi Lampu Lalu Lintas</th>
+                                          <th>Nama Pengguna</th>
+                                          <th>No Nik</th>
+                                          <th>Waktu Penggunaan</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <?php
+                                        $no = 0; 
+                                        $query = mysqli_query($konek, "SELECT penggunaan.*, user.nama, user.nik, lampu.lokasi_lampu  FROM penggunaan LEFT JOIN user ON user.id_user = penggunaan.id_user LEFT JOIN lampu ON lampu.id_lampu =penggunaan.id_lampu
+                                        ");
+                                        while ($row = mysqli_fetch_array($query)) {
+                                        ?>
+                                          <tr>
+                                              <td><?php echo $no = $no + 1; ?></td>
+                                              <td>Lampu Lalu Lintas <?php echo $row['id_lampu']; ?></td>
+                                              <td><?php echo $row['lokasi_lampu'];?></td>
+                                              <td><?php echo $row['nama']; ?> </td>
+                                              <td><?php echo $row['nik']; ?> </td>
+                                              <td><?php echo $row['waktu_scan']; ?> WIB</td>
+
+                                          </tr>
+                                      <?php } ?>
+                                      </tfoot>
+                              </table>
                             
 
                             <a id="cetak" href="" target="_blank" class="btn btn-primary" role="button" title="Cetak Data" style="float: right; margin: 30px 30px 0 0;"><i class="fas fa-print"></i> Cetak</a>
