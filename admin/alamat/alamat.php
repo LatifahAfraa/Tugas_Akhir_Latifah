@@ -5,41 +5,41 @@ if(isset($_GET['page'])){
 
   switch ($page) {
     // Verifikasi
-    case 'verifikasi':
+    case 'verifikasi';
       include 'verifikasi/List_Verifikasi.php';
     break;
-    case 'verifikasi_pendaftaran':
+    case 'verifikasi_pendaftaran';
       include 'verifikasi/verifikasi.php';
     break;
-    case 'hapus_user':
+    case 'hapus_user';
       include 'verifikasi/hapus_user.php';
     break;
 
     // =======================================
 
     // Waktu
-    case 'waktu':
+    case 'waktu';
       include 'waktu/list_waktu.php';
     break;
 
     // =======================================
 
     // alat
-    case 'total_penggunaan':
+    case 'total_penggunaan';
       include 'total_penggunaan/list_alat.php';
     break;
 
     // =======================================
 
     // kartu
-    case 'kartu':
+    case 'kartu';
       include 'kartu/list_kartu.php';
     break;
 
     // =======================================
 
     // aktif_nonak
-    case 'aktif_nonaktif':
+    case 'aktif_nonaktif';
       include 'aktif_nonaktif/list_aktif_nonaktif.php';
     break;
 
@@ -61,8 +61,16 @@ if(isset($_GET['page'])){
     include 'crud/delete_lampu.php';
     break;
 
+    // =======================================
 
-    case 'logout':
+    // user list
+    case 'list';
+      include 'list/list.php';
+    break;
+
+    // =======================================
+
+    case 'logout';
       include 'logout.php';
     break;
 

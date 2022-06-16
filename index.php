@@ -113,7 +113,7 @@ include "koneksi/koneksi.php";
             </li>
             
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="index.php?page=list" class="nav-link">
                 <i class="nav-icon fas fa-list-alt"></i>
                 <p>List Penggunaan Alat</p>
               </a>

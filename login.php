@@ -169,6 +169,7 @@ include "koneksi/koneksi.php";
 								echo "<script>alert('Kartu Dinonaktifkan');</script>";
 							} else {
 								$_SESSION['nama'] = $nama;
+								$_SESSION['id_user'] = $fetch['id_user'];
 								$_SESSION['status'] = "login";
 								echo "<script>window.location='index.php'</script>";
 							}

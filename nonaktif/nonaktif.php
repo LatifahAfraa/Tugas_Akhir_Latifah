@@ -1,8 +1,6 @@
 <?php
 $data = mysqli_query($konek, "SELECT * FROM user WHERE id_user ='$_SESSION[id_user]'");
 $user = mysqli_fetch_assoc($data);
-$query = mysqli_query($konek, "SELECT *, (SELECT COUNT(*) FROM penggunaan WHERE penggunaan.id_user=user.id_user) as total from user ORDER BY id_user ASC");
-$q = mysqli_fetch_assoc($query);
 ?>
 
 <div class="content-wrapper">
@@ -52,9 +50,23 @@ $q = mysqli_fetch_assoc($query);
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="total" class="col-sm-4 col-form-label">Total Penggunaan E-KTP</label>
+                                    <label for="alamat" class="col-sm-4 col-form-label">Alamat</label>
                                     <div class="col-sm-8">
-                                        <input type="text" name="total" value="<?php echo $q['total'] ?> x"  class="form-control" id="total">
+                                        <input type="text" name="total" value="<?php echo $user['alamat'] ?> x"  class="form-control" id="total">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="tanggal_lahir" class="col-sm-4 col-form-label">Tanggal Lahir</label>
+                                    <div class="col-sm-8">
+                                        <input type="date" name="total" value="<?php echo $user['tanggal_lahir'] ?>"  class="form-control" id="total">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
+                                    <label for="no_hp" class="col-sm-4 col-form-label">No HP</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="no_hp" value="<?php echo $user['no_hp'] ?>"  class="form-control" id="total">
                                     </div>
                                 </div>
 
