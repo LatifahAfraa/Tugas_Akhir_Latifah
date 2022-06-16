@@ -43,6 +43,10 @@ if(isset($_GET['page'])){
       include 'aktif_nonaktif/list_aktif_nonaktif.php';
     break;
 
+    case 'proses_aktif_nonaktif';
+      include 'aktif_nonaktif/aktif_nonaktif.php';
+    break;
+
     // =======================================
 
     case'create_lampu';

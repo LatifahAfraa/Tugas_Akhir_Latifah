@@ -9,12 +9,12 @@ $user = mysqli_fetch_assoc($data);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Verifikasi Pendaftaran</h1>
+                    <h1>Mengaktifkan Atau Menonaktifkan E-KTP</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Verifikasi Pendaftaran</li>
+                        <li class="breadcrumb-item active">Mengaktifkan Atau Menonaktifkan E-KTP</li>
                     </ol>
                 </div>
             </div>
@@ -31,7 +31,7 @@ $user = mysqli_fetch_assoc($data);
                         <div class="card-body">
 
                             <center>
-                                <h2>Verifikasi Pendaftaran</h2>
+                                <h2>Mengaktifkan Atau Menonaktifkan E-KTP</h2>
                             </center>
                             <form action="" method="POST">
                                 <div class="form-group row">
@@ -88,6 +88,16 @@ $user = mysqli_fetch_assoc($data);
                                 </div>
 
                                 <div class="form-group row">
+                                    <label for="status" class="col-sm-2 col-form-label">Status</label>
+                                    <div class="col-sm-10">
+                                        <select name="status" id="status" class="form-control">
+                                            <option value="1" <?php if($user['status'] == 1) { echo "selected"; } ?>>Aktif</option>
+                                            <option value="0" <?php if($user['status'] == 0) { echo "selected"; }?>>Non Aktif</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
                                     <div class="col-sm-12">
                                         <button type="submit" name="simpan" class="btn btn-success form-control">Simpan</button>
                                     </div>
@@ -104,9 +114,10 @@ $user = mysqli_fetch_assoc($data);
         $tanggal_lahir=$_POST['tanggal_lahir'];
         $no_hp = $_POST['no_hp'];
         $verifikasi = $_POST['verifikasi'];
+        $status = $_POST['status'];
         // $password= password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-        $simpan = mysqli_query($konek, "UPDATE user SET nik='$nik',id_rfid='$id_rfid', nama='$nama', alamat='$alamat', tanggal_lahir='$tanggal_lahir', no_hp='$no_hp', verifikasi='$verifikasi' WHERE id_user= '$_GET[id_user]'");
+        $simpan = mysqli_query($konek, "UPDATE user SET nik='$nik',id_rfid='$id_rfid', nama='$nama', alamat='$alamat', tanggal_lahir='$tanggal_lahir', no_hp='$no_hp', verifikasi='$verifikasi', status ='$status' WHERE id_user= '$_GET[id_user]'");
         if ($simpan) {
             # code...
             echo "<script>alert('Pendaftaran Telah Divalidasi Admin '); window.location.href='index.php?page=verifikasi'</script>";
