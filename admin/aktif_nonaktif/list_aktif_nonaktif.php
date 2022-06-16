@@ -68,8 +68,8 @@
                   }
                   ?></td>
                   <td>
-                    <?php if($row['verifikasi'] == 1){ ?>
-                      <a href="index.php?page=verifikasi_pendaftaran&id_user=<?php echo $row['id_user'] ?>" class="btn btn-info"><i class="fa fa-check"></i> Aktifkan</a>
+                    <?php if($row['verifikasi'] == 0){ ?>
+                      <a href="index.php?page=verifikasi_pendaftaran&id_user=<?php echo $row['id_user'] ?>" class="btn btn-info"><i class="fa fa-close"></i> Aktifkan</a>
                     <?php } else { ?>
                     <a href="index.php?page=verifikasi_pendaftaran&id_user=<?php echo $row['id_user'] ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Non Aktifkan</a>
                      <?php } ?>
