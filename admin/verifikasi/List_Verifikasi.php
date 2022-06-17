@@ -34,6 +34,7 @@
                     <th>Nama</th>
                     <th>Alamat</th>
                     <th>Tanggal Lahir</th>
+                    <th>Umur</th>
                     <th>No Hp</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -53,6 +54,7 @@
                   <td><?php echo $row['nama'];?></td>
                   <td><?php echo $row['alamat'];?></td>
                   <td><?php echo $row['tanggal_lahir'];?></td>
+                  <td><?= date("Y")-date("Y", strtotime($row['tanggal_lahir'])) ?> Tahun</td>
                   <td><?php echo $row['no_hp'];?></td>
                   <td><?php  if($row['verifikasi'] == 1) {
                                 echo "<span class='badge badge-success'>Verifikasi</span>";

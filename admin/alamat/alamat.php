@@ -74,6 +74,13 @@ if(isset($_GET['page'])){
 
     // =======================================
 
+    // user nonaktif
+    case 'nonaktif';
+      include 'nonaktif/nonaktif.php';
+    break;
+
+    // =======================================
+
     case 'logout';
       include 'logout.php';
     break;
