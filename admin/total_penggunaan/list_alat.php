@@ -57,7 +57,7 @@
                                   <tbody>
                                       <?php
                                         $no = 0; 
-                                        $query = mysqli_query($konek, "SELECT penggunaan.*, user.nama, user.nik, lampu.lokasi_lampu  FROM penggunaan LEFT JOIN user ON user.id_user = penggunaan.id_user LEFT JOIN lampu ON lampu.id_lampu =penggunaan.id_lampu
+                                        $query = mysqli_query($konek, "SELECT penggunaan.*, user.nama, user.nik, lampu.lokasi_lampu  FROM penggunaan LEFT JOIN user ON user.id_user = penggunaan.id_user LEFT JOIN lampu ON lampu.id_lampu =penggunaan.id_lampu ORDER BY waktu_scan DESC
                                         ");
                                         while ($row = mysqli_fetch_array($query)) {
                                         ?>
