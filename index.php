@@ -1,11 +1,12 @@
 <?php
+include "koneksi/koneksi.php";
 session_start();
   if(!isset($_SESSION['status']))
   echo "<script>window.location='login.php'</script>";
+
+  if(!isset($_SESSION['level']) or $_SESSION['level'] != "user")
+  echo "<script>window.location='login.php'</script>";
   ?>
-<?php 
-include "koneksi/koneksi.php";
-?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -170,6 +170,7 @@ include "koneksi/koneksi.php";
 							} else {
 								$_SESSION['nama'] = $nama;
 								$_SESSION['id_user'] = $fetch['id_user'];
+								$_SESSION['level'] = "user";
 								$_SESSION['status'] = "login";
 								echo "<script>window.location='index.php'</script>";
 							}

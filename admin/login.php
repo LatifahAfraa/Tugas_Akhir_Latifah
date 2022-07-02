@@ -172,6 +172,7 @@ include "../koneksi/koneksi.php";
 							// die();
 							if (password_verify($password, $fetch['password'])) {
 								$_SESSION['username'] = $username;
+								$_SESSION['level'] = "admin";
 								$_SESSION['status'] = "login";
 								echo "<script>window.location='index.php'</script>";
 							} else {

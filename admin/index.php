@@ -1,6 +1,9 @@
 <?php
 session_start();
   if(!isset($_SESSION['status']))
+    echo "<script>window.location='login.php'</script>";
+
+  if(!isset($_SESSION['level']) or $_SESSION['level'] != "admin")
   echo "<script>window.location='login.php'</script>";
   ?>
 <?php 
