@@ -19,6 +19,7 @@ if(isset($_GET['update'])){  //pergantian lampu lalu lintas, api sesuai alat
         /*
             Jika nilai warna = true maka data lampu yang bernilai true berwarna hijau
             Jika nilai warna = false maka data lampu yang bernilai true berwarna kuning
+            test
         */
         $hasil = [ //kuning
             'warna' => false, // kuning 
