@@ -120,7 +120,7 @@ $user = mysqli_fetch_assoc($data);
         $simpan = mysqli_query($konek, "UPDATE user SET nik='$nik',id_rfid='$id_rfid', nama='$nama', alamat='$alamat', tanggal_lahir='$tanggal_lahir', no_hp='$no_hp', verifikasi='$verifikasi', status ='$status' WHERE id_user= '$_GET[id_user]'");
         if ($simpan) {
             # code...
-            echo "<script>alert('Pendaftaran Telah Divalidasi Admin '); window.location.href='index.php?page=verifikasi'</script>";
+            echo "<script>alert('Pendaftaran Telah Divalidasi Admin '); window.location.href='index.php?page=aktif_nonaktif'</script>";
         }
     }
     ?>

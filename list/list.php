@@ -1,7 +1,7 @@
 <?php
 $data = mysqli_query($konek, "SELECT * FROM user WHERE id_user ='$_SESSION[id_user]'");
 $user = mysqli_fetch_assoc($data);
-$query = mysqli_query($konek, "SELECT *, (SELECT COUNT(*) FROM penggunaan WHERE penggunaan.id_user=user.id_user) as total from user ORDER BY id_user ASC");
+$query = mysqli_query($konek, "SELECT *, (SELECT COUNT(*) FROM penggunaan WHERE penggunaan.id_user=user.id_user) as total from user WHERE id_user ='$_SESSION[id_user]' ORDER BY id_user ASC");
 $q = mysqli_fetch_assoc($query);
 ?>
 

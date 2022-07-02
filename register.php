@@ -181,12 +181,11 @@ include "koneksi/koneksi.php";
 						$no_hp = $_POST['no_hp'];
 						$tanggal_lahir = $_POST['tanggal_lahir'];
 						$verifikasi=0;
-						
+						$status=1;
 						$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
 						// menyeleksi data admin dengan nama dan password yang sesuai
-						$simpan = mysqli_query($konek, "INSERT INTO user (nama,nik,alamat, no_hp,tanggal_lahir,verifikasi, password) VALUES ('$nama','$nik','$alamat','$no_hp','$tanggal_lahir', '$verifikasi', '$password')");
-
+						$simpan = mysqli_query($konek, "INSERT INTO user (nama,nik,alamat, no_hp,tanggal_lahir, status, verifikasi, password) VALUES ('$nama','$nik','$alamat','$no_hp','$tanggal_lahir', '$status', '$verifikasi', '$password')");
 
 						if ($simpan) {
 							# code...
