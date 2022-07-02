@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <br>
                             <center><label>List Lampu</label></center>
-                            <i class="fas fa-plus-circle"><a href="index.php?page=create_lampu">Create Lampu</a></i>
+                            <!-- <i class="fas fa-plus-circle"><a href="index.php?page=create_lampu">Create Lampu</a></i> -->
                             <table id="admin" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
