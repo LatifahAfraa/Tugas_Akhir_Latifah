@@ -81,12 +81,14 @@ if(isset($_GET['lampu']) && isset($_GET['rfid'])) { // untuk scan
     $lampu = $_GET['lampu'];
     $rfid = $_GET['rfid'];
 
+    // SIMPAN LOG SCAN
+    $now= date("Y-m-d H:i:s");
+    mysqli_query($konek, "INSERT INTO log_scan (rfid, created_at) VALUES ('$rfid', '$node')");
+
     $query_riwayat_lampu = mysqli_query($konek, "SELECT * FROM riwayat_lampu ORDER BY id DESC LIMIT 1");
     $row_riwayat_lampu = mysqli_num_rows($query_riwayat_lampu);
     $fetch_riwayat_lampu = mysqli_fetch_assoc($query_riwayat_lampu);
 
-
-    
     function update_lampu($lampu, $rfid) {
         global $konek;
         $table_lampu = mysqli_query($konek, "SELECT * FROM lampu Where id_lampu='$lampu' and status_lampu = 'merah'"); 

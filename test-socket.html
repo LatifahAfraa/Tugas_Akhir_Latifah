@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Web Socket</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>Lampu 1</td>
+                <td>Lampu 2</td>
+                <td>Lampu 3</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span id="lampu_1"></span></td>
+                <td><span id="lampu_2"></span></td>
+                <td><span id="lampu_3"></span></td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.min.js"></script>
+<script>
+        const socket = io("http://localhost:3005");
+        socket.on("connect", () => {
+            console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+            socket.on("ganti-lampu", (datas) => {
+                datas.forEach((lampu) => {
+                    if(lampu.status == true) {
+                        $('#lampu_'+lampu.id).text("Merah");
+                    } else {
+                        $('#lampu_'+lampu.id).text("Hijau");
+                    }
+                });
+            });
+        });
+
+</script>
+</body>
+</html>
