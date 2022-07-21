@@ -53,6 +53,15 @@
                 mysqli_query($konek, "UPDATE lampu_master SET value='$latest_change_at' WHERE name='latest_change_at'");
                 
                 return $durasi_waktu;
+                
+            } else if(time() - $next_change_at <= -5) {
+                $next_change_at = time()+$durasi_waktu;
+                $latest_change_at = time(); 
+                
+                mysqli_query($konek, "UPDATE lampu_master SET value='$next_change_at' WHERE name='next_change_at'");
+                mysqli_query($konek, "UPDATE lampu_master SET value='$latest_change_at' WHERE name='latest_change_at'");
+                
+                return $durasi_waktu;
             } 
             /*
             $table_lampu = mysqli_query($konek, "SELECT * FROM lampu ORDER BY id_lampu ASC"); 
