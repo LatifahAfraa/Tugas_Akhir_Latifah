@@ -54,7 +54,7 @@
                 
                 return $durasi_waktu;
                 
-            } else if(time() - $next_change_at <= -5) {
+            } else if( $next_change_at - time() <= -5) {
                 $next_change_at = time()+$durasi_waktu;
                 $latest_change_at = time(); 
                 
