@@ -34,7 +34,7 @@
 
         } else {
 
-            if($next_change_at <= time()) {
+            if($next_change_at == time()) {
                 $next_change_at = time()+$durasi_waktu;
                 $latest_change_at = time();
 
