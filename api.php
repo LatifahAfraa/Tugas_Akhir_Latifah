@@ -35,8 +35,8 @@
         } else {
 
             if($next_change_at == time()) {
-                $next_change_at = time()+$durasi_waktu;
-                $latest_change_at = time();
+                $next_change_at = time()+$durasi_waktu;  //waktu tunggu
+                $latest_change_at = time();     //waktu berubah lampu
 
                 $table_lampu_hijau = mysqli_query($konek, "SELECT * FROM lampu WHERE status_lampu='hijau' LIMIT 1");
                 $fetch_lampu_hijau = mysqli_fetch_assoc($table_lampu_hijau);
@@ -89,9 +89,9 @@
     }
 
     if(isset($_GET['rfid'])) {
-        $lampu_1 = $_GET['device1'] ?? 0;
-        $lampu_2 = $_GET['device2'] ?? 0;
-        $lampu_3 = $_GET['device3'] ?? 0;
+        // $lampu_1 = $_GET['device1'] ?? 0; api mengikuti
+        // $lampu_2 = $_GET['device2'] ?? 0;
+        // $lampu_3 = $_GET['device3'] ?? 0;
 
         $rfid = $_GET['rfid'];
         $waktu = 0;
@@ -103,12 +103,12 @@
             $lampu_master[$fetch_lampu_master['name']] = $fetch_lampu_master;
         }
 
-        if($rfid != 0) {
+        // if($rfid != 0) {
             // SIMPAN LOG SCAN
             $now= date("Y-m-d H:i:s");
             mysqli_query($konek, "INSERT INTO log_scan (rfid, created_at) VALUES ('$rfid', '$now')");
     
-            $query_user = mysqli_query($konek, "SELECT * FROM user WHERE id_rfid='$rfid'");
+            $query_user = mysqli_query($konek, "SELECT * FROM user WHERE id_rfid='$rfid' AND verifikasi='1'");
             $row_user = mysqli_num_rows($query_user);
     
             if($row_user != 0) { // JIKA USER DITEMUKAN => UBAH DATA LAMPU
@@ -117,9 +117,9 @@
             } else {
                 $waktu = update_lampu(false, $lampu_master);
             }
-        } else {
-            $waktu = update_lampu(false, $lampu_master);
-        }
+        // } else {
+        //     $waktu = update_lampu(false, $lampu_master);
+        // }
         
 
 
@@ -130,9 +130,12 @@
             $res["lampu_".$fetch_lampu['id_lampu']] = ($fetch_lampu['status_lampu'] == "hijau")? 1 : 3;
         }
 
+        //respon yg digunakan untuk alat
+
         echo json_encode($res);
     }
 
+    /*
     if(isset($_GET['devices'])) {
 
         $query_lampu = mysqli_query($konek, "SELECT * FROM lampu");
@@ -144,3 +147,4 @@
 
         echo json_encode($res);
     }
+    */

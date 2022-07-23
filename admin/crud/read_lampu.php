@@ -34,8 +34,6 @@
                                         <th>No</th>
                                         <th>Nama Lampu</th>
                                         <th>Lokasi Lampu</th>
-                                        <th>Waktu Aktif</th>
-                                        <th>Tambahan Waktu</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -49,13 +47,6 @@
                                             <td><?php echo $no = $no + 1; ?></td>
                                             <td><?php echo $row['nama_lampu']; ?></td>
                                             <td><?php echo $row['lokasi_lampu']; ?></td>
-                                            <td><?php echo $row['waktu_mulai']; ?> - <?php echo $row['waktu_selesai']; ?> WIB</td>
-                                            <td><?php echo $row['tambahan_waktu']; ?> <?php if($row['tambahan_waktu'] == 60) {
-                                                echo " Detik";
-                                                } else {
-                                                echo "";
-                                                }
-                                                ?> </td>
                                                     <td>
                                                         <a href="index.php?page=update_lampu&id_lampu=<?php echo $row['id_lampu'] ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
 

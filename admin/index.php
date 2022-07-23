@@ -124,8 +124,8 @@ include "../koneksi/koneksi.php";
 
             <li class="nav-item">
               <a href="index.php?page=read_lampu" class="nav-link">
-                <i class="nav-icon fas fa-clock"></i>
-                <p>Waktu Aktif Traffic Light</p>
+                <i class="nav-icon fas fa-traffic-light"></i>
+                <p>Lokasi Traffic Light</p>
               </a>
             </li>
 

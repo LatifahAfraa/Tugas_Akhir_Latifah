@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>List User</h1>
+            <h1>Verifikasi Pendaftaran</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php?page=verifikasi">Kelola Data</a></li>
-              <li class="breadcrumb-item active">List User</li>
+              <li class="breadcrumb-item active">Verifikasi Pendaftaran</li>
             </ol>
           </div>
         </div>
@@ -29,7 +29,6 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Id RFID</th>
                     <th>Nik</th>
                     <th>Nama</th>
                     <th>Alamat</th>
@@ -49,7 +48,6 @@
                 ?>
                   <tr>
                   <td><?php echo $no=$no+1;?></td>
-                  <td><?php echo $row['id_rfid'];?></td>
                   <td><?php echo $row['nik'];?></td>
                   <td><?php echo $row['nama'];?></td>
                   <td><?php echo $row['alamat'];?></td>
