@@ -42,7 +42,7 @@
                             <?php
                             }
                             ?>
-                            <br><center><label>List Penambahan Waktu Pada Setiap Traffic Light</label></center>
+                            <br><center><label>List Penggunaan Setiap Traffic Light</label></center>
                               <table id="admin" class="table table-bordered table-striped">
                                   <thead>
                                       <tr>

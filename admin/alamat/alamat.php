@@ -23,6 +23,20 @@ if(isset($_GET['page'])){
     break;
 
     // =======================================
+    // monitoring
+    case 'monitoring';
+      include 'monitoring/monitoring.php';
+    break;
+
+    // =======================================
+    // riwayat
+    case 'riwayat_tap';
+      include 'riwayat/riwayat.php';
+    break;
+
+    // =======================================
+
+
 
     // alat
     case 'total_penggunaan';

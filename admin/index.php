@@ -114,6 +114,20 @@ include "../koneksi/koneksi.php";
                 <p>Dashboard</p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a href="index.php?page=monitoring"  class="nav-link">
+                <i class="nav-icon fas fa-traffic-light"></i>
+                <p>Monitoring Lampu Hijau Pada Traffic Light</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="index.php?page=riwayat_tap"  class="nav-link">
+                <i class="nav-icon fas fa-history"></i>
+                <p>Riwayat Tap Pada Traffic Light</p>
+              </a>
+            </li>
             
             <li class="nav-item">
               <a href="index.php?page=verifikasi" class="nav-link">
@@ -130,23 +144,31 @@ include "../koneksi/koneksi.php";
             </li>
 
             <li class="nav-item">
+              <a href="index.php?page=waktu" class="nav-link">
+                <i class="nav-icon fas fa-clock"></i>
+                <p>Pengaturan Waktu Traffic Light</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
               <a href="index.php?page=total_penggunaan"  class="nav-link">
                 <i class="nav-icon fas fa-list"></i>
                 <p>Total Penggunaan Traffic Light</p>
               </a>
             </li>
-                       
+
+                                   
             <li class="nav-item">
               <a href="index.php?page=kartu" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
-                <p>Total Penggunaan E-KTP Oleh Setiap Lansia</p>
+                <p>Total Penggunaan RFID Tag Oleh Setiap Lansia</p>
               </a>
             </li>
 
             <li class="nav-item">
               <a href="index.php?page=aktif_nonaktif" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
-                <p>Mengaktifkan dan Menonaktifkan E-KTP</p>
+                <p>Mengaktifkan dan Menonaktifkan RFID Tag</p>
               </a>
             </li>
 

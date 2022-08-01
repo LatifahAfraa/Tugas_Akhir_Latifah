@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Lokasi Lampu Lalu Lintas</h1>
+                    <h1>Riwayat Tap Pada Traffic Light</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Kelola Data</a></li>
-                        <li class="breadcrumb-item active">Lokasi Lampu Lalu Lintas</li>
+                        <li class="breadcrumb-item active">Riwayat Tap Pada Traffic Light</li>
                     </ol>
                 </div>
             </div>
@@ -26,32 +26,26 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <br>
-                            <center><label>LIST LAMPU LALU LINTAS</label></center>
+                            <center><label>List Riwayat Tap Pada Traffic Light</label></center>
                             <!-- <i class="fas fa-plus-circle"><a href="index.php?page=create_lampu">Create Lampu</a></i> -->
                             <table id="admin" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Lampu</th>
-                                        <th>Lokasi Lampu</th>
-                                        <th>Aksi</th>
+                                        <th>ID RFID</th>
+                                        <th>Waktu Tap</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $no = 0;
-                                    $query = mysqli_query($konek, "SELECT *from lampu ORDER BY id_lampu ASC");
+                                    $query = mysqli_query($konek, "SELECT *from log_scan ORDER BY created_at DESC LIMIT 20");
                                     while ($row = mysqli_fetch_array($query)) {
                                     ?>
                                         <tr>
                                             <td><?php echo $no = $no + 1; ?></td>
-                                            <td><?php echo $row['nama_lampu']; ?></td>
-                                            <td><?php echo $row['lokasi_lampu']; ?></td>
-                                                    <td>
-                                                        <a href="index.php?page=update_lampu&id_lampu=<?php echo $row['id_lampu'] ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
-
-                                                        <!-- <a href="index.php?page=hapus_lampu&id_lampu=<?php echo $row['id_lampu'] ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a> -->
-                                                    </td>
+                                            <td><?php echo $row['rfid']; ?></td>
+                                            <td><?php echo $row['created_at']; ?></td>
                                         </tr>
                                     <?php } ?>
                                     </tfoot>
