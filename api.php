@@ -85,3 +85,13 @@ function timeout_proses($durasi_waktu, $id_lampu_hijau)
     
     return (int) $durasi_waktu;
 }
+
+if(isset($_GET['baca_lampu'])) {
+    $response['waktu'] = 0;
+    $query_lampu = mysqli_query($konek, "SELECT * FROM lampu");
+    while ($fetch_lampu = mysqli_fetch_assoc($query_lampu)) {
+        $response["lampu_".$fetch_lampu['id_lampu']] = ($fetch_lampu['status_lampu'] == "hijau")? 1 : 3;
+    }
+    
+    echo json_encode($response);
+}
