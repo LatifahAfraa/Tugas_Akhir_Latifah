@@ -1,12 +1,12 @@
 <?php
     require "koneksi/koneksi.php";
 
-    function update_lampu($is_scan=false, $lampu_master) {
+    function update_lampu($is_scan=false, $lampu_master, $data) {
         global $konek;
 
-        $rfid = $_GET['rfid'];
-        $scan = $_GET['scan'];
-        $detik = $_GET['detik'];
+        // $rfid = $_GET['rfid'];
+        // $scan = $_GET['scan'];
+        $detik = $data['detik'] ?? 0;
        
         $lampu_hijau_berikutnya = $lampu_master['lampu_hijau_berikutnya']['value'] ?? 0;
         $lampu_hijau_sebelumnya = $lampu_master['lampu_hijau_sebelumnya']['value'] ?? 0;
@@ -89,9 +89,9 @@
             if($row_user != 0) { // JIKA USER DITEMUKAN => UBAH DATA LAMPU
                 // echo json_encode($res);
                 $fetch_user = mysqli_fetch_assoc($query_user);
-                $waktu = update_lampu($fetch_user['id_user'], $lampu_master);
+                $waktu = update_lampu($fetch_user['id_user'], $lampu_master, $data);
             } else {
-                $waktu = update_lampu(false, $lampu_master);
+                $waktu = update_lampu(false, $lampu_master, $data);
             }
         // } else {
         //     $waktu = update_lampu(false, $lampu_master);
