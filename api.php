@@ -25,7 +25,8 @@
             return $tambahan_waktu_scan;
 
         } else {
-            if(time() - $lampu_hijau_sebelumnya > 5 AND ($_GET['detik'] ?? 0) == 0) {
+            echo $_GET['detik'] ?? 0;
+            if(($_GET['detik'] ?? 0) == 0) {
                 $lampu_hijau_berikutnya = time()+$durasi_waktu;  //waktu tunggu
                 $lampu_hijau_sebelumnya = time();     //waktu berubah lampu
                 
