@@ -31,7 +31,7 @@ if(isset($_GET['rfid'])) {
     
         if($row_user != 0) {
             $fetch_user = mysqli_fetch_assoc($query_user);
-            $response['waktu'] = scan_proses($tambahan_waktu_scan, $fetch_lampu_hijau['id_lampu'], $fetch_user['id_user']);
+            $response['waktu'] = scan_proses($tambahan_waktu_scan, $scan, $fetch_user['id_user']);
         }
     } else {
         $response['sisa_waktu'] = $sisa_waktu;
@@ -48,11 +48,11 @@ if(isset($_GET['rfid'])) {
     echo json_encode($response);
 }
 
-function scan_proses($tambahan_waktu_scan, $id_lampu_hijau, $id_user) {
+function scan_proses($tambahan_waktu_scan, $id_lampu_scan, $id_user) {
     global $konek;
     
     $now= date("Y-m-d H:i:s");
-    mysqli_query($konek, "INSERT INTO penggunaan (id_lampu, id_user, waktu_scan) VALUES ('$id_lampu_hijau', '$id_user', '$now')");
+    mysqli_query($konek, "INSERT INTO penggunaan (id_lampu, id_user, waktu_scan) VALUES ('$id_lampu_scan', '$id_user', '$now')");
 
     return (int) $tambahan_waktu_scan;
 }
