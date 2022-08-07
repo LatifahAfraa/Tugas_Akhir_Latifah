@@ -3,6 +3,10 @@
 
     function update_lampu($is_scan=false, $lampu_master) {
         global $konek;
+
+        $rfid = $_GET['rfid'];
+        $scan = $_GET['scan'];
+        $detik = $_GET['detik'];
        
         $lampu_hijau_berikutnya = $lampu_master['lampu_hijau_berikutnya']['value'] ?? 0;
         $lampu_hijau_sebelumnya = $lampu_master['lampu_hijau_sebelumnya']['value'] ?? 0;
@@ -26,7 +30,7 @@
 
         } else {
 
-            if($lampu_hijau_berikutnya == time()) {
+            if($lampu_hijau_berikutnya == time() || $detik == 0) {
                 $lampu_hijau_berikutnya = time()+$durasi_waktu;  //waktu tunggu
                 $lampu_hijau_sebelumnya = time();     //waktu berubah lampu
                 
@@ -62,6 +66,8 @@
         
 
         $rfid = $_GET['rfid'];
+        $scan = $_GET['scan'];
+        $detik = $_GET['detik'];
         $waktu = 0;
 
         // Get Lampu Master
