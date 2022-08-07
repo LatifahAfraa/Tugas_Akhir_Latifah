@@ -1,7 +1,16 @@
 <?php
     require "koneksi/koneksi.php";
 
-    function update_lampu($is_scan=false, $lampu_master) {
+    function log_file($filename, $data) {
+        if(!file_exists('./logs/'.$filename)) {
+            file_put_contents('./logs/'.$filename, $data."\n");
+        } else {
+            $fp = fopen('./logs/'.$filename, 'a');
+            fwrite($fp, $data."\n");
+        }
+        return true;
+    }
+    function update_lampu($is_scan=false, $lampu_master, $detik=1) {
         global $konek;
        
         $lampu_hijau_berikutnya = $lampu_master['lampu_hijau_berikutnya']['value'] ?? 0;
@@ -25,7 +34,9 @@
             return $tambahan_waktu_scan;
 
         } else {
-            if(($_GET['detik'] ?? 0) == 0) {
+            
+            log_file('log-'.date('d-m-Y').".log", "Detik : ".$detik);
+            if($detik == 0) {
                 $lampu_hijau_berikutnya = time()+$durasi_waktu;  //waktu tunggu
                 $lampu_hijau_sebelumnya = time();     //waktu berubah lampu
                 
@@ -59,9 +70,10 @@
 
     if(isset($_GET['rfid'])) {
         
-
+        log_file('log-'.date('d-m-Y').".log", json_encode($_GET));
         $rfid = $_GET['rfid'];
         $waktu = 0;
+        $detik = (int) $_GET['detik'];
 
         // Get Lampu Master
         $query_lampu_master = mysqli_query($konek, "SELECT * FROM lampu_master");
@@ -81,9 +93,9 @@
             if($row_user != 0) { // JIKA USER DITEMUKAN => UBAH DATA LAMPU
                 // echo json_encode($res);
                 $fetch_user = mysqli_fetch_assoc($query_user);
-                $waktu = update_lampu($fetch_user['id_user'], $lampu_master);
+                $waktu = update_lampu($fetch_user['id_user'], $lampu_master, $detik);
             } else {
-                $waktu = update_lampu(false, $lampu_master);
+                $waktu = update_lampu(false, $lampu_master, $detik);
             }
         // } else {
         //     $waktu = update_lampu(false, $lampu_master);
@@ -105,4 +117,4 @@
         echo json_encode($res);
     }
 
-   
+   /// AKU MANDI SABANTA YO FAH 
