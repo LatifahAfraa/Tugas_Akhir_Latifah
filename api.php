@@ -30,7 +30,8 @@
 
         } else {
 
-            if($lampu_hijau_berikutnya == time()) {
+            // if($lampu_hijau_berikutnya == time()) {
+            if($detik == 0) {
                 $lampu_hijau_berikutnya = time()+$durasi_waktu;  //waktu tunggu
                 $lampu_hijau_sebelumnya = time();     //waktu berubah lampu
                 
@@ -47,14 +48,14 @@
                 
                 return $durasi_waktu;
                 
-            } else if( $lampu_hijau_berikutnya - time() <= -5) {
-                $lampu_hijau_berikutnya = time()+$durasi_waktu;
-                $lampu_hijau_sebelumnya = time(); 
+            // } else if( $lampu_hijau_berikutnya - time() <= -5) {
+            //     $lampu_hijau_berikutnya = time()+$durasi_waktu;
+            //     $lampu_hijau_sebelumnya = time(); 
                 
-                mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_berikutnya' WHERE name='lampu_hijau_berikutnya'");
-                mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_sebelumnya' WHERE name='lampu_hijau_sebelumnya'");
+            //     mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_berikutnya' WHERE name='lampu_hijau_berikutnya'");
+            //     mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_sebelumnya' WHERE name='lampu_hijau_sebelumnya'");
                 
-                return $durasi_waktu;
+            //     return $durasi_waktu;
             } 
             
         }
