@@ -25,7 +25,6 @@
             return $tambahan_waktu_scan;
 
         } else {
-            echo $_GET['detik'] ?? 0;
             if(($_GET['detik'] ?? 0) == 0) {
                 $lampu_hijau_berikutnya = time()+$durasi_waktu;  //waktu tunggu
                 $lampu_hijau_sebelumnya = time();     //waktu berubah lampu
@@ -95,6 +94,7 @@
         $query_lampu = mysqli_query($konek, "SELECT * FROM lampu");
         $res = [];
         $res['waktu'] = (int) $waktu;
+        $res['detik'] = (int) $_GET['detik'];
         // $res['waktu'] = $waktu;
         while ($fetch_lampu = mysqli_fetch_assoc($query_lampu)) {
             $res["lampu_".$fetch_lampu['id_lampu']] = ($fetch_lampu['status_lampu'] == "hijau")? 1 : 3;
