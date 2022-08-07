@@ -5,8 +5,8 @@ if(isset($_GET['rfid'])) {
     $response['waktu'] = 0;
 
     $rfid = $_GET['rfid'];
-    $scan = $_GET['scan'];
-    $sisa_waktu = $_GET['detik'];
+    $scan = (int) $_GET['scan'];
+    $sisa_waktu = (int) $_GET['detik'];
 
     $now = date("Y-m-d H:i:s");
     
