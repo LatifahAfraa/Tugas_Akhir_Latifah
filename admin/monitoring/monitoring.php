@@ -62,7 +62,7 @@ $data_lampu = mysqli_fetch_assoc($tabel_lampu);
 <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.min.js"></script>
 <script>
-    const socket = io("http://localhost:3005");
+    const socket = io("http://44.194.149.131:3005");
     socket.on("connect", () => {
         console.log(socket.id); // x8WIv7-mJelg7on_ALbx
         socket.on("ganti-lampu", (datas) => {
@@ -70,7 +70,7 @@ $data_lampu = mysqli_fetch_assoc($tabel_lampu);
             $("#lampu_"+ datas.id_lampu).removeClass("bg-danger").addClass("bg-success");
         });
     });
-</script>
+</script> 
 <script>
     $(document).ready(() => {
         $("#lampu_<?php echo $data_lampu['id_lampu'] ?>").removeClass("bg-danger").addClass("bg-success");
