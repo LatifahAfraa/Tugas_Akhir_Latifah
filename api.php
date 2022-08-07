@@ -34,7 +34,6 @@
             return $tambahan_waktu_scan;
 
         } else {
-            echo $detik;
             if($detik == 0) {
                 $lampu_hijau_berikutnya = time()+$durasi_waktu;  //waktu tunggu
                 $lampu_hijau_sebelumnya = time();     //waktu berubah lampu
