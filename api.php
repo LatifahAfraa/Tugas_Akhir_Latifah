@@ -34,8 +34,7 @@
             return $tambahan_waktu_scan;
 
         } else {
-            
-            log_file('log-'.date('d-m-Y').".log", "Detik : ".$detik);
+            echo $detik;
             if($detik == 0) {
                 $lampu_hijau_berikutnya = time()+$durasi_waktu;  //waktu tunggu
                 $lampu_hijau_sebelumnya = time();     //waktu berubah lampu
@@ -70,7 +69,6 @@
 
     if(isset($_GET['rfid'])) {
         
-        log_file('log-'.date('d-m-Y').".log", json_encode($_GET));
         $rfid = $_GET['rfid'];
         $waktu = 0;
         $detik = (int) $_GET['detik'];
