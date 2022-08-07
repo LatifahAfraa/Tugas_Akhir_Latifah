@@ -8,16 +8,13 @@ if(isset($_GET['rfid'])) {
     $scan = (int) $_GET['scan'];
     $sisa_waktu = (int) $_GET['detik'];
 
-    $now = date("Y-m-d H:i:s");
+    $now = date("Y-m-d H:i:s"); //inisialisasikan waktu saat ini
     
     $query_lampu_master = mysqli_query($konek, "SELECT * FROM lampu_master");
-    $lampu_master = [];
+    $lampu_master = []; //menyimpan data dari tabel lampu master ke variabel lampu_master
     while ($fetch_lampu_master = mysqli_fetch_assoc($query_lampu_master)) {
         $lampu_master[$fetch_lampu_master['name']] = $fetch_lampu_master;
     }
-    
-    $lampu_hijau_berikutnya = $lampu_master['lampu_hijau_berikutnya']['value'] ?? 0;
-    $lampu_hijau_sebelumnya = $lampu_master['lampu_hijau_sebelumnya']['value'] ?? 0;
 
     $tambahan_waktu_scan = $lampu_master['tambahan_waktu_scan']['value'];
     $durasi_waktu = $lampu_master['durasi_lampu']['value'];
@@ -54,12 +51,7 @@ if(isset($_GET['rfid'])) {
 function scan_proses($tambahan_waktu_scan, $id_lampu_hijau, $id_user) {
     global $konek;
     
-    $lampu_hijau_berikutnya = time()+$tambahan_waktu_scan;
-    $lampu_hijau_sebelumnya = time();
     $now= date("Y-m-d H:i:s");
-
-    mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_berikutnya' WHERE name='lampu_hijau_berikutnya'");
-    mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_sebelumnya' WHERE name='lampu_hijau_sebelumnya'");
     mysqli_query($konek, "INSERT INTO penggunaan (id_lampu, id_user, waktu_scan) VALUES ('$id_lampu_hijau', '$id_user', '$now')");
 
     return (int) $tambahan_waktu_scan;
@@ -68,9 +60,6 @@ function scan_proses($tambahan_waktu_scan, $id_lampu_hijau, $id_user) {
 function timeout_proses($durasi_waktu, $id_lampu_hijau)
 {
     global $konek;
-
-    $lampu_hijau_berikutnya = time()+$durasi_waktu;
-    $lampu_hijau_sebelumnya = time();
     
     mysqli_query($konek, "UPDATE lampu SET status_lampu='merah'");
     if($id_lampu_hijau == 3) {
@@ -80,13 +69,10 @@ function timeout_proses($durasi_waktu, $id_lampu_hijau)
         mysqli_query($konek, "UPDATE lampu SET status_lampu='hijau' WHERE id_lampu='$lampu_next_id'");
     }
     
-    mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_berikutnya' WHERE name='lampu_hijau_berikutnya'");
-    mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_sebelumnya' WHERE name='lampu_hijau_sebelumnya'");
-    
     return (int) $durasi_waktu;
 }
 
-if(isset($_GET['baca_lampu'])) {
+if(isset($_GET['baca_lampu'])) { //membaca data lampu
     $response['waktu'] = 0;
     $query_lampu = mysqli_query($konek, "SELECT * FROM lampu");
     while ($fetch_lampu = mysqli_fetch_assoc($query_lampu)) {
