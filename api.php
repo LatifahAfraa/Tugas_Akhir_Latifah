@@ -53,7 +53,7 @@ function scan_proses($tambahan_waktu_scan, $id_lampu_scan, $id_user) {
     
     $now= date("Y-m-d H:i:s");
     mysqli_query($konek, "INSERT INTO penggunaan (id_lampu, id_user, waktu_scan) VALUES ('$id_lampu_scan', '$id_user', '$now')");
-
+    
     return (int) $tambahan_waktu_scan;
 }
 
@@ -69,7 +69,20 @@ function timeout_proses($durasi_waktu, $id_lampu_hijau)
         mysqli_query($konek, "UPDATE lampu SET status_lampu='hijau' WHERE id_lampu='$lampu_next_id'");
     }
     
+    curl(array('event_name' => "ganti-lampu", "datas" => array("id_lampu" => $id_lampu_hijau)));
+    
     return (int) $durasi_waktu;
+}
+
+function curl($datas)
+{
+    $cURLConnection = curl_init('http://44.194.149.131:3005/to-socket');
+    curl_setopt($cURLConnection, CURLOPT_POSTFIELDS, $datas);
+    curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+
+    $apiResponse = curl_exec($cURLConnection);
+    curl_close($cURLConnection);
+    return $apiResponse;
 }
 
 if(isset($_GET['baca_lampu'])) { //membaca data lampu
