@@ -1,16 +1,7 @@
 <?php
     require "koneksi/koneksi.php";
 
-    function log_file($filename, $data) {
-        if(!file_exists('logs/'.$filename)) {
-            file_put_contents('logs/'.$filename, $data."\n");
-        } else {
-            $fp = fopen('logs/'.$filename, 'a');
-            fwrite($fp, $data."\n");
-        }
-        return true;
-    }
-    function update_lampu($is_scan=false, $lampu_master, $detik=1) {
+    function update_lampu($is_scan=false, $lampu_master) {
         global $konek;
        
         $lampu_hijau_berikutnya = $lampu_master['lampu_hijau_berikutnya']['value'] ?? 0;
@@ -34,7 +25,8 @@
             return $tambahan_waktu_scan;
 
         } else {
-            if($detik == 0) {
+
+            if($lampu_hijau_berikutnya == time()) {
                 $lampu_hijau_berikutnya = time()+$durasi_waktu;  //waktu tunggu
                 $lampu_hijau_sebelumnya = time();     //waktu berubah lampu
                 
@@ -51,14 +43,14 @@
                 
                 return $durasi_waktu;
                 
-            // } else if( $lampu_hijau_berikutnya - time() <= -5) {
-            //     $lampu_hijau_berikutnya = time()+$durasi_waktu;
-            //     $lampu_hijau_sebelumnya = time(); 
+            } else if( $lampu_hijau_berikutnya - time() <= -5) {
+                $lampu_hijau_berikutnya = time()+$durasi_waktu;
+                $lampu_hijau_sebelumnya = time(); 
                 
-            //     mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_berikutnya' WHERE name='lampu_hijau_berikutnya'");
-            //     mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_sebelumnya' WHERE name='lampu_hijau_sebelumnya'");
+                mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_berikutnya' WHERE name='lampu_hijau_berikutnya'");
+                mysqli_query($konek, "UPDATE lampu_master SET value='$lampu_hijau_sebelumnya' WHERE name='lampu_hijau_sebelumnya'");
                 
-            //     return $durasi_waktu;
+                return $durasi_waktu;
             } 
             
         }
@@ -68,9 +60,9 @@
 
     if(isset($_GET['rfid'])) {
         
+
         $rfid = $_GET['rfid'];
         $waktu = 0;
-        $detik = (int) $_GET['detik'];
 
         // Get Lampu Master
         $query_lampu_master = mysqli_query($konek, "SELECT * FROM lampu_master");
@@ -90,9 +82,9 @@
             if($row_user != 0) { // JIKA USER DITEMUKAN => UBAH DATA LAMPU
                 // echo json_encode($res);
                 $fetch_user = mysqli_fetch_assoc($query_user);
-                $waktu = update_lampu($fetch_user['id_user'], $lampu_master, $detik);
+                $waktu = update_lampu($fetch_user['id_user'], $lampu_master);
             } else {
-                $waktu = update_lampu(false, $lampu_master, $detik);
+                $waktu = update_lampu(false, $lampu_master);
             }
         // } else {
         //     $waktu = update_lampu(false, $lampu_master);
@@ -103,7 +95,6 @@
         $query_lampu = mysqli_query($konek, "SELECT * FROM lampu");
         $res = [];
         $res['waktu'] = (int) $waktu;
-        $res['detik'] = (int) $_GET['detik'];
         // $res['waktu'] = $waktu;
         while ($fetch_lampu = mysqli_fetch_assoc($query_lampu)) {
             $res["lampu_".$fetch_lampu['id_lampu']] = ($fetch_lampu['status_lampu'] == "hijau")? 1 : 3;
@@ -114,4 +105,4 @@
         echo json_encode($res);
     }
 
-   /// AKU MANDI SABANTA YO FAH 
+   
