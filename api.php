@@ -30,7 +30,7 @@
 
         } else {
 
-            if($lampu_hijau_berikutnya == time() || $detik == 0) {
+            if($detik == 0) {
                 $lampu_hijau_berikutnya = time()+$durasi_waktu;  //waktu tunggu
                 $lampu_hijau_sebelumnya = time();     //waktu berubah lampu
                 
