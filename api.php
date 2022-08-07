@@ -2,10 +2,10 @@
     require "koneksi/koneksi.php";
 
     function log_file($filename, $data) {
-        if(!file_exists('./logs/'.$filename)) {
-            file_put_contents('./logs/'.$filename, $data."\n");
+        if(!file_exists('logs/'.$filename)) {
+            file_put_contents('logs/'.$filename, $data."\n");
         } else {
-            $fp = fopen('./logs/'.$filename, 'a');
+            $fp = fopen('logs/'.$filename, 'a');
             fwrite($fp, $data."\n");
         }
         return true;
