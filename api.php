@@ -22,7 +22,7 @@ if(isset($_GET['rfid'])) {
     $table_lampu_hijau = mysqli_query($konek, "SELECT * FROM lampu WHERE status_lampu='hijau' LIMIT 1");
     $fetch_lampu_hijau = mysqli_fetch_assoc($table_lampu_hijau);
     
-    if($scan) {
+    if($scan AND !empty($rfid)) {
         $now = date("Y-m-d H:i:s");
         mysqli_query($konek, "INSERT INTO log_scan (rfid, created_at) VALUES ('$rfid', '$now')");
     
