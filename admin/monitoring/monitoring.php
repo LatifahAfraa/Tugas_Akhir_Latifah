@@ -75,7 +75,7 @@ $data_lampu = mysqli_fetch_assoc($tabel_lampu);
     });
 
     function update_lampu() {
-        $.get("//api.php?baca_lampu=1", (hasil) => {
+        $.get("/api.php?baca_lampu=1", (hasil) => {
             let json = JSON.parse(hasil);
             let keys = Object.keys(json);
             keys.forEach((key) => {
