@@ -35,7 +35,7 @@ if(isset($_GET['rfid'])) {
         }
     } else {
         $response['sisa_waktu'] = $sisa_waktu;
-        if($sisa_waktu <= 1) {
+        if($sisa_waktu <= 0) {
             $response['waktu'] = timeout_proses($durasi_waktu, $fetch_lampu_hijau['id_lampu']);
         }
     }
