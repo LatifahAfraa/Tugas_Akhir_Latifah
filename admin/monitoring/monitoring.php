@@ -1,9 +1,3 @@
-<?php
-
-$tabel_lampu = mysqli_query($konek, "SELECT * FROM lampu WHERE status_lampu='hijau' ORDER BY id_lampu ASC LIMIT 1");
-$data_lampu = mysqli_fetch_assoc($tabel_lampu);
-
-?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -66,8 +60,6 @@ $data_lampu = mysqli_fetch_assoc($tabel_lampu);
   crossorigin="anonymous"></script>
 <script>
     $(document).ready(() => {
-        $("#lampu_<?php echo $data_lampu['id_lampu'] ?>").removeClass("bg-danger").addClass("bg-success");
-
         // setInterval(, 1);
         setInterval(() => {
             update_lampu()
