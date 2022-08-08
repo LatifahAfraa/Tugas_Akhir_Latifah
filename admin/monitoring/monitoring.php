@@ -59,20 +59,34 @@ $data_lampu = mysqli_fetch_assoc($tabel_lampu);
     </section>
 </div>
 <!-- /.content-wrapper -->
-<script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.min.js"></script>
-<script>
-    const socket = io("http://44.194.149.131:3005");
-    socket.on("connect", () => {
-        console.log(socket.id); // x8WIv7-mJelg7on_ALbx
-        socket.on("ganti-lampu", (datas) => {
-            $(".card").removeClass("bg-success").addClass("bg-danger");
-            $("#lampu_"+ datas.id_lampu).removeClass("bg-danger").addClass("bg-success");
-        });
-    });
-</script> 
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 <script>
     $(document).ready(() => {
         $("#lampu_<?php echo $data_lampu['id_lampu'] ?>").removeClass("bg-danger").addClass("bg-success");
+
+        // setInterval(, 1);
+        setInterval(() => {
+            update_lampu()
+        }, 1000);
     });
+
+    function update_lampu() {
+        $.get("//api.php?baca_lampu=1", (hasil) => {
+            let json = JSON.parse(hasil);
+            let keys = Object.keys(json);
+            keys.forEach((key) => {
+                if(key !== "waktu") {
+                    if(json[key] == 1) {
+                        $('#'+key).removeClass("bg-danger").addClass("bg-success");
+                    } else {
+                        $('#'+key).removeClass("bg-success").addClass("bg-danger");
+                    }
+                }
+            });
+        })
+    }
 </script>
