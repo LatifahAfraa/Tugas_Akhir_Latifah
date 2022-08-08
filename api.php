@@ -1,4 +1,4 @@
-<?php
+<?php 
 require "koneksi/koneksi.php";
 
 if(isset($_GET['rfid'])) {
@@ -35,7 +35,7 @@ if(isset($_GET['rfid'])) {
         }
     } else {
         $response['sisa_waktu'] = $sisa_waktu;
-        if($sisa_waktu <= 0) {
+        if($sisa_waktu <= 1) {
             $response['waktu'] = timeout_proses($durasi_waktu, $fetch_lampu_hijau['id_lampu']);
         }
     }
@@ -62,14 +62,14 @@ function timeout_proses($durasi_waktu, $id_lampu_hijau)
     global $konek;
     
     mysqli_query($konek, "UPDATE lampu SET status_lampu='merah'");
-    if($id_lampu_hijau == 3) {
+    if($id_lampu_hijau == 3) { //pengecekan id lampu hijau saat ini, jika id 3 di ubah ke lampu 1
         mysqli_query($konek, "UPDATE lampu SET status_lampu='hijau' WHERE id_lampu='1'");
     } else {
         $lampu_next_id = $id_lampu_hijau + 1;
         mysqli_query($konek, "UPDATE lampu SET status_lampu='hijau' WHERE id_lampu='$lampu_next_id'");
     }
     
-    return (int) $durasi_waktu;
+    return (int) $durasi_waktu; //mengembalikan waktu dari db
 }
 
 if(isset($_GET['baca_lampu'])) { //membaca data lampu
