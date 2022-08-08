@@ -72,17 +72,6 @@ function timeout_proses($durasi_waktu, $id_lampu_hijau)
     return (int) $durasi_waktu; //mengembalikan waktu dari db
 }
 
-function curl($datas)
-{
-    $cURLConnection = curl_init('http://44.194.149.131:3005/to-socket');
-    curl_setopt($cURLConnection, CURLOPT_POSTFIELDS, $datas);
-    curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-
-    $apiResponse = curl_exec($cURLConnection);
-    curl_close($cURLConnection);
-    return $apiResponse;
-}
-
 if(isset($_GET['baca_lampu'])) { //membaca data lampu
     $response['waktu'] = 0;
     $query_lampu = mysqli_query($konek, "SELECT * FROM lampu");
