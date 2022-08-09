@@ -54,10 +54,7 @@
 </div>
 <!-- /.content-wrapper -->
 
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(() => {
         // setInterval(, 1);
@@ -68,12 +65,12 @@
 
     function update_lampu() {
         $.get("/api.php?baca_lampu=1", (hasil) => {
-            let json = JSON.parse(hasil);
-            let keys = Object.keys(json);
+            let json = JSON.parse(hasil); //pemecahan json ke array
+            let keys = Object.keys(json);  //hanya menggambil key dari array berupa waktu, lampu_1, lampu_2, lampu_3 
             keys.forEach((key) => {
                 if(key !== "waktu") {
                     if(json[key] == 1) {
-                        $('#'+key).removeClass("bg-danger").addClass("bg-success");
+                        $('#'+key).removeClass("bg-danger").addClass("bg-success"); //selector berdasarkan atribut id
                     } else {
                         $('#'+key).removeClass("bg-success").addClass("bg-danger");
                     }
