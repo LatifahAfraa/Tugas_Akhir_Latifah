@@ -31,7 +31,7 @@ $user = mysqli_fetch_assoc($data);
                         <div class="card-body">
 
                             <center>
-                                <h2>Mengaktifkan Atau Menonaktifkan Kartu RFID</h2>
+                                <h2>Menonaktifkan Kartu RFID</h2>
                             </center>
                             <form action="" method="POST">
                                 <div class="form-group row">
