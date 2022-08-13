@@ -6,12 +6,12 @@
           <div class="container-fluid">
               <div class="row mb-2">
                   <div class="col-sm-6">
-                      <h1>Total Penggunaan E-KTP</h1>
+                      <h1>Total Penggunaan Kartu RFID</h1>
                   </div>
                   <div class="col-sm-6">
                       <ol class="breadcrumb float-sm-right">
                           <li class="breadcrumb-item"><a href="index.php?page=kartu">Kelola Data</a></li>
-                          <li class="breadcrumb-item active">Total Penggunaan E-KTP</li>
+                          <li class="breadcrumb-item active">Total Penggunaan Kartu RFID</li>
                       </ol>
                   </div>
               </div>
@@ -26,14 +26,14 @@
                       <div class="card">
                           <!-- /.card-header -->
                           <div class="card-body">
-                              <br><center><label>List Total Penggunaan E-KTP Oleh Setiap Lansia</label></center>
+                              <br><center><label>List Total Penggunaan Kartu RFID Oleh Setiap Lansia</label></center>
                               <table id="admin" class="table table-bordered table-striped">
                                   <thead>
                                       <tr>
                                           <th>No</th>
                                           <th>NIK</th>
                                           <th>Nama</th>
-                                          <th>Total Penggunaan E-KTP</th>
+                                          <th>Total Penggunaan Kartu RFID</th>
                                       </tr>
                                   </thead>
                                   <tbody>

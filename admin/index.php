@@ -161,14 +161,14 @@ include "../koneksi/koneksi.php";
             <li class="nav-item">
               <a href="index.php?page=kartu" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
-                <p>Total Penggunaan RFID Tag Oleh Setiap Lansia</p>
+                <p>Total Penggunaan Kartu RFID Oleh Setiap Lansia</p>
               </a>
             </li>
 
             <li class="nav-item">
               <a href="index.php?page=aktif_nonaktif" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
-                <p>Mengaktifkan dan Menonaktifkan RFID Tag</p>
+                <p>Mengaktifkan dan Menonaktifkan Kartu RFID</p>
               </a>
             </li>
 

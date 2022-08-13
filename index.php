@@ -123,7 +123,7 @@ session_start();
             <li class="nav-item">
               <a href="index.php?page=nonaktif" class="nav-link">
                 <i class="nav-icon fas fa-clock"></i>
-                <p>Menonaktifkan E-KTP</p>
+                <p>Menonaktifkan Kartu RFID </p>
               </a>
             </li>
 

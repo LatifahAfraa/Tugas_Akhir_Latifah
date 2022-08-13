@@ -11,12 +11,12 @@ $q = mysqli_fetch_assoc($query);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Total Penggunaan E-KTP</h1>
+                    <h1>Total Penggunaan Kartu RFID</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Total Penggunaan E-KTP</li>
+                        <li class="breadcrumb-item active">Total Penggunaan Kartu RFID</li>
                     </ol>
                 </div>
             </div>
@@ -33,7 +33,7 @@ $q = mysqli_fetch_assoc($query);
                         <div class="card-body">
 
                             <center>
-                                <h2>Total Penggunaan E-KTP</h2><br>
+                                <h2>Total Penggunaan Kartu RFID</h2><br>
                             </center>
                             <form action="" method="POST">
                                 <div class="form-group row">
@@ -52,7 +52,7 @@ $q = mysqli_fetch_assoc($query);
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="total" class="col-sm-4 col-form-label">Total Penggunaan E-KTP</label>
+                                    <label for="total" class="col-sm-4 col-form-label">Total Penggunaan Kartu RFID</label>
                                     <div class="col-sm-8">
                                         <input type="text" name="total" value="<?php echo $q['total'] ?> x"  class="form-control" id="total">
                                     </div>
