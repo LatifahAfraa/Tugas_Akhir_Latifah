@@ -39,7 +39,7 @@
                     <div class="card bg-danger" id="lampu_2">
                         <!-- /.card-header -->
                         <div class="card-body text-center">
-                            <h4>Lampu2</h4>
+                            <h4>Lampu 2</h4>
                         </div>
                         <!-- /.card-body -->
                     </div>

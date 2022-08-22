@@ -28,7 +28,7 @@
                             <br>
                             <center><label>List Riwayat Tap Pada Traffic Light</label></center>
                             <!-- <i class="fas fa-plus-circle"><a href="index.php?page=create_lampu">Create Lampu</a></i> -->
-                            <table id="admin" class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -37,18 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $no = 0;
-                                    $query = mysqli_query($konek, "SELECT *from log_scan ORDER BY created_at DESC LIMIT 20");
-                                    while ($row = mysqli_fetch_array($query)) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $no = $no + 1; ?></td>
-                                            <td><?php echo $row['rfid']; ?></td>
-                                            <td><?php echo $row['created_at']; ?></td>
-                                        </tr>
-                                    <?php } ?>
-                                    </tfoot>
+                                </tbody>
                             </table>
 
                             <a id="cetak" href="" target="_blank" class="btn btn-primary" role="button" title="Cetak Data" style="float: right; margin: 30px 30px 0 0;"><i class="fas fa-print"></i> Cetak</a>
@@ -76,6 +65,12 @@
     cetak.addEventListener('click', function() {
         window.print();
     })
+
+    setInterval(() => {
+        $.get("/admin/riwayat/tap.php", (hasil) => {
+            $('tbody').html(hasil);
+        })
+    }, 2000);
 </script>
 </body>
 
