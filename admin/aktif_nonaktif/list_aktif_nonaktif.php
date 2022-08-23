@@ -75,7 +75,7 @@
                     <?php } else { ?>
                     <a href="index.php?page=proses_aktif_nonaktif&id_user=<?php echo $row['id_user'] ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Non Aktifkan</a>
                      <?php } ?>
-                    <a href="index.php?page=hapus_user&id_user=<?php echo $row['id_user'] ?>"class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                    <a href="index.php?page=hapus_aktif_nonaktif&id_user=<?php echo $row['id_user'] ?>"class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                    </td>
                 </tr>
                 <?php } ?>
