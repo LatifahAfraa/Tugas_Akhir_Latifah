@@ -33,10 +33,10 @@
                                           <th>No</th>
                                           <th>NIK</th>
                                           <th>Nama</th>
-                                          <th>Total Penggunaan Kartu RFID</th>
                                           <th>Traffic Light 1</th>
                                           <th>Traffic Light 2</th>
                                           <th>Traffic Light 3</th>
+                                          <th>Total Penggunaan Kartu RFID</th>
                                       </tr>
                                   </thead>
                                   <tbody>
