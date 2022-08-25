@@ -4,12 +4,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Monitoring Lampu Hijau Traffic Light</h1>
+                    <h1>Monitoring Traffic Light</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="index.php?page=monitoring">Kelola Data</a></li>
-                        <li class="breadcrumb-item active">Monitoring Lampu Hijau Traffic Light</li>
+                        <li class="breadcrumb-item active">Monitoring Traffic Light</li>
                     </ol>
                 </div>
             </div>

@@ -50,6 +50,10 @@ if(isset($_GET['page'])){
       include 'kartu/list_kartu.php';
     break;
 
+    case 'setiap_lampu';
+      include 'kartu/setiap_lampu.php';
+    break;
+
     // =======================================
 
     // aktif_nonak
