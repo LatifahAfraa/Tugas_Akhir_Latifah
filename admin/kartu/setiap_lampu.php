@@ -51,10 +51,10 @@
                                               <td><?php echo $no = $no + 1; ?></td>
                                               <td><?php echo $row['nik']; ?></td>
                                               <td><?php echo $row['nama']; ?></td>
-                                              <td><?php echo $row['total_lampu']; ?> x</td>
                                               <td><?php echo $row['total_lampu_1'];?> x</td>
                                               <td><?php echo $row['total_lampu_2'];?> x</td>
                                               <td><?php echo $row['total_lampu_3'];?> x</td>
+                                              <td><?php echo $row['total_lampu']; ?> x</td>
                                               
 
                                           </tr>
